@@ -53,6 +53,7 @@ Open your .env file and add your public key and secret key. Get your keys from [
 RAVEN_PUBLIC_KEY='RVPUB-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-xxxxxxxxxxxxx'
 RAVEN_SECRET_KEY='RVSEC-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-xxxxxxxxxxxxx'
 RAVEN_BASE_URL='https://integrations.getravenbank.com/v1/'
+RAVEN_WEBHOOK_SECRET='xxxxxxxxx'
 ```
 
 ## Credits
@@ -74,6 +75,7 @@ The current features have been implemented
 - [Bill Payments](#bills)
 - [Transactions](#transactions)
 - [Verifications](#verifications)
+- [Webhooks](#webhooks)
 
 
 ### Collections
@@ -293,6 +295,15 @@ $payload = [
 ];
 $response = RavenAtlas::verifications()->imageMatch($payload);
 ```
+
+### Webhooks
+
+This will return a ```true``` or ```false``` boolean value.
+
+```
+$response = RavenAtlas::verifyWebhook();
+```
+
 
 > This project is still a work in progress.
 

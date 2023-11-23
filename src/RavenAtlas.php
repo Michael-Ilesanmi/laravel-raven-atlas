@@ -25,6 +25,7 @@ class RavenAtlas
     protected $publicKey;
     protected $secretKey;
     protected $baseUrl;
+    protected $webhookSecret;
 
     /**
      * Construct
@@ -34,6 +35,7 @@ class RavenAtlas
         $this->publicKey = config('raven.publicKey');
         $this->secretKey = config('raven.secretKey');
         $this->baseUrl = config('raven.baseUrl');
+        $this->webhookSecret = config('raven.webhookSecret');
     }
 
     /**
@@ -44,6 +46,25 @@ class RavenAtlas
     {
         $reference = 'rv_' . uniqid(time());;
         return $reference;
+    }
+
+    
+    /**
+     * Confirms webhook `secret` is the same as the environment variable
+     * @param $request
+     * @return boolean
+     */
+    public function verifyWebhook($request)
+    {
+        // https://raven-atlas.readme.io/docs/introduction-to-webhook 
+        if ($request->secret) {
+            $requestSecret = $request->secret;
+            // confirm that the secret matches
+            if ($requestSecret == $this->webhookSecret) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

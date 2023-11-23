@@ -24,8 +24,14 @@ return [
     'secretKey' => env('RAVEN_SECRET_KEY'),
 
     /**
-     * Base URL: Secret hash for webhook
+     * Base URL
      *
      */
     'baseUrl' => env('RAVEN_BASE_URL', 'https://integrations.getravenbank.com/v1/'),
+    
+    /**
+     * Webhook Secret
+     *
+     */
+    'webhookSecret' => env('RAVEN_WEBHOOK_SECRET'),
 ];
