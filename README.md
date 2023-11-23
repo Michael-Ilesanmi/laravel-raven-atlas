@@ -15,7 +15,7 @@ The current features have been implemented
 ### Installation 
 
 ```
-composer require localdev/raven-atlas
+composer require localdev/laravel-raven-atlas
 ```
 
 After installation, to register the service provider, open ```config/app.php``` and add the following to the ```providers``` key.
