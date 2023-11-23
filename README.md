@@ -298,17 +298,33 @@ $response = RavenAtlas::verifications()->imageMatch($payload);
 
 ### Webhooks
 
-This will return a ```true``` or ```false``` boolean value.
-
+Go to ```app/Http/Middleware/VerifyCsrfToken.php``` and add the web route handling your webhook to the ```$except``` array
 ```
-$response = RavenAtlas::verifyWebhook();
+protected $except = [
+    '/webhook/raven',
+];
 ```
 
+Setup a function in your controller to handle the webhook.
+```
+public function webhook(Request $request)
+  {
+    // This verifies the webhook
+    $verify = RavenAtlas::verifyWebhook();
+    if ($verify == true) {
+        // do something with the webhook payload
+        ...
+        return response()->json("OK", 200);
+    }
+    return response()->json("Error", 400);
+  }
+```
 
-> This project is still a work in progress.
 
 
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+> This project is still a work in progress.

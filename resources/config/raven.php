@@ -12,13 +12,13 @@
 return [
 
     /**
-     * Public Key: Your Raven Atlas publicKey. Go to https://atlas.getravenbank.com/user/settings to get yours
+     * Public Key: Your Raven Atlas Public Key. Go to https://atlas.getravenbank.com/user/settings to get yours
      *
      */
     'publicKey' => env('RAVEN_PUBLIC_KEY'),
 
     /**
-     * Secret Key: Your Raven Atlas secretKey. Go to https://atlas.getravenbank.com/user/settings to get yours
+     * Secret: Your Raven Atlas Secret. Go to https://atlas.getravenbank.com/user/settings to get yours
      *
      */
     'secretKey' => env('RAVEN_SECRET_KEY'),
@@ -30,7 +30,7 @@ return [
     'baseUrl' => env('RAVEN_BASE_URL', 'https://integrations.getravenbank.com/v1/'),
     
     /**
-     * Webhook Secret
+     * Webhook Secret: Your Raven Atlas Webhook Secret. Go to https://atlas.getravenbank.com/user/settings to get yours
      *
      */
     'webhookSecret' => env('RAVEN_WEBHOOK_SECRET'),

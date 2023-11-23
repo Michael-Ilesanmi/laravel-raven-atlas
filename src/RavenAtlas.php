@@ -54,11 +54,11 @@ class RavenAtlas
      * @param $request
      * @return boolean
      */
-    public function verifyWebhook($request)
+    public function verifyWebhook()
     {
         // https://raven-atlas.readme.io/docs/introduction-to-webhook 
-        if ($request->secret) {
-            $requestSecret = $request->secret;
+        if (request()->secret) {
+            $requestSecret = request()->secret;
             // confirm that the secret matches
             if ($requestSecret == $this->webhookSecret) {
                 return true;
